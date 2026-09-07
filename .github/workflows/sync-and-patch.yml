@@ -1,0 +1,57 @@
+name: Sync upstream and generate custom port config
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add upstream and merge
+        run: |
+          git remote add upstream https://github.com/patterniha/Serverless-for-Iran.git
+          git fetch upstream main
+          git merge upstream/main --no-edit
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install json5
+
+      - name: Generate custom port config
+        run: |
+          mkdir -p custom-configs
+          python - <<'EOF'
+          import json, json5
+
+          files = ["Serverless-low_delay.jsonc", "Serverless-high_delay.jsonc"]
+          all_configs = []
+
+          for f in files:
+              with open(f) as fp:
+                  cfg = json5.load(fp)
+              for inbound in cfg["inbounds"]:
+                  inbound["port"] = 9999
+              all_configs.append(cfg)
+
+          with open("custom-configs/Serverless-for-Iran-port9999.json", "w") as out:
+              json.dump(all_configs, out, indent=4)
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add custom-configs/
+          git commit -m "update custom port9999 subscription" --allow-empty
+          git push origin main
