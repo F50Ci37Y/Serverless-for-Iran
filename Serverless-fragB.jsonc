@@ -117,7 +117,7 @@
       "streamSettings": {
         "finalmask": {
           "tcp": [
-            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["1"], "delays": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1"], "maxSplit": "419"}}
+            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["1"], "delays": ["1"], "maxSplit": "201"}}
           ]
         },
         "sockopt": {
@@ -132,8 +132,8 @@
       "streamSettings": {
         "finalmask": {
           "tcp": [
-			{"type": "fragment", "settings": {"packets": "tlshello", "lengths": ["5", "1"], "delays": ["0"], "maxSplit": "0"}},
-            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["43", "1"], "delays": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1"], "maxSplit": "522"}}
+			{"type": "fragment", "settings": {"packets": "tlshello", "lengths": ["0", "104", "1"], "delays": ["0"], "maxSplit": "0"}},
+            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["114", "1"], "delays": ["1"], "maxSplit": "11"}}
           ]
         },
         "sockopt": {
@@ -225,7 +225,7 @@
         "network": "tcp", "port": "443", "ip": ["0.0.0.0/0", "::/0"]
       },
       {
-        "outboundTag": "tcp-fragment",
+        "outboundTag": "tcp-direct",
         "network": "tcp", "ip": ["0.0.0.0/0", "::/0"]
       },
       {
