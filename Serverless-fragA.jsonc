@@ -7,7 +7,7 @@
   },
 
 
-  "remarks": "Serverless-v48-high_delay",
+  "remarks": "Serverless-v50-fragA",
 
   "version": {
     "min": "26.6.27"
@@ -23,7 +23,7 @@
         "uplinkOnly": 0,
         "downlinkOnly": 0
       },
-      "1": {
+      "12": {
         "uplinkOnly": 0,
         "downlinkOnly": 0,
         "connIdle": 12
@@ -91,22 +91,24 @@
       "streamSettings": {
         "sockopt": {
           "domainStrategy": "ForceIP",
-          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": true, "interleave": 2, "maxConcurrentTry": 20}
+          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": false, "interleave": 4, "maxConcurrentTry": 20}
         }
       }
     },
 	{
       "tag": "udp-direct",
       "protocol": "direct",
-      "settings": {
-        "targetStrategy": "ForceIPv6v4"
-	  }
+      "streamSettings": {
+        "sockopt": {
+          "domainStrategy": "ForceIPv4v6"
+		}
+	  }	
 	},
     {
       "tag": "dns-out",
       "protocol": "dns",
       "settings": {
-        "userLevel": 1
+        "userLevel": 12
       }
     },
     {
@@ -115,12 +117,12 @@
       "streamSettings": {
         "finalmask": {
           "tcp": [
-            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["1"], "delays": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1"], "maxSplit": "419"}}
+            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["1"], "delays": ["1"], "maxSplit": "201"}}
           ]
         },
         "sockopt": {
           "domainStrategy": "ForceIP",
-          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": true, "interleave": 2, "maxConcurrentTry": 20}
+          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": false, "interleave": 4, "maxConcurrentTry": 20}
         }
       }
     },
@@ -130,23 +132,23 @@
       "streamSettings": {
         "finalmask": {
           "tcp": [
-			{"type": "fragment", "settings": {"packets": "tlshello", "lengths": ["5", "1"], "delays": ["0"], "maxSplit": "0"}},
-            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["43", "1"], "delays": ["1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1", "1", "1", "1", "1", "1", "1", "1", "1", "400", "1"], "maxSplit": "522"}}
+			{"type": "fragment", "settings": {"packets": "tlshello", "lengths": ["6", "98", "1"], "delays": ["0"], "maxSplit": "0"}},
+            {"type": "fragment", "settings": {"packets": "1-1", "lengths": ["114", "1"], "delays": ["1"], "maxSplit": "11"}}
           ]
         },
         "sockopt": {
           "domainStrategy": "ForceIP",
-          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": true, "interleave": 2, "maxConcurrentTry": 20}
+          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": false, "interleave": 4, "maxConcurrentTry": 20}
         }
       }
     },
     {
       "tag": "udp-noises",
       "protocol": "direct",
-      "settings": {
-        "targetStrategy": "ForceIPv6v4"
-      },
       "streamSettings": {
+		"sockopt": {
+          "domainStrategy": "ForceIPv4v6"
+		},
         "finalmask": {
           "udp": [
             {
@@ -223,7 +225,7 @@
         "network": "tcp", "port": "443", "ip": ["0.0.0.0/0", "::/0"]
       },
       {
-        "outboundTag": "tcp-fragment",
+        "outboundTag": "tcp-direct",
         "network": "tcp", "ip": ["0.0.0.0/0", "::/0"]
       },
       {

@@ -6,7 +6,7 @@
             "donate2": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o",
             "donate3": "TON (TON): UQAc-mZB3y7uxWHKiMmq0ORZEYgycWDWZ4V1k73HsXvTJx-i"
         },
-        "remarks": "Serverless-v48-low_delay",
+        "remarks": "Serverless-v50-fragA",
         "version": {
             "min": "26.6.27"
         },
@@ -21,7 +21,7 @@
                     "uplinkOnly": 0,
                     "downlinkOnly": 0
                 },
-                "1": {
+                "12": {
                     "uplinkOnly": 0,
                     "downlinkOnly": 0,
                     "connIdle": 12
@@ -121,8 +121,8 @@
                         "domainStrategy": "ForceIP",
                         "happyEyeballs": {
                             "tryDelayMs": 300,
-                            "prioritizeIPv6": true,
-                            "interleave": 2,
+                            "prioritizeIPv6": false,
+                            "interleave": 4,
                             "maxConcurrentTry": 20
                         }
                     }
@@ -131,15 +131,17 @@
             {
                 "tag": "udp-direct",
                 "protocol": "direct",
-                "settings": {
-                    "targetStrategy": "ForceIPv6v4"
+                "streamSettings": {
+                    "sockopt": {
+                        "domainStrategy": "ForceIPv4v6"
+                    }
                 }
             },
             {
                 "tag": "dns-out",
                 "protocol": "dns",
                 "settings": {
-                    "userLevel": 1
+                    "userLevel": 12
                 }
             },
             {
@@ -158,7 +160,7 @@
                                     "delays": [
                                         "1"
                                     ],
-                                    "maxSplit": "419"
+                                    "maxSplit": "201"
                                 }
                             }
                         ]
@@ -167,8 +169,8 @@
                         "domainStrategy": "ForceIP",
                         "happyEyeballs": {
                             "tryDelayMs": 300,
-                            "prioritizeIPv6": true,
-                            "interleave": 2,
+                            "prioritizeIPv6": false,
+                            "interleave": 4,
                             "maxConcurrentTry": 20
                         }
                     }
@@ -185,7 +187,8 @@
                                 "settings": {
                                     "packets": "tlshello",
                                     "lengths": [
-                                        "5",
+                                        "6",
+                                        "98",
                                         "1"
                                     ],
                                     "delays": [
@@ -199,13 +202,13 @@
                                 "settings": {
                                     "packets": "1-1",
                                     "lengths": [
-                                        "43",
+                                        "114",
                                         "1"
                                     ],
                                     "delays": [
                                         "1"
                                     ],
-                                    "maxSplit": "522"
+                                    "maxSplit": "11"
                                 }
                             }
                         ]
@@ -214,8 +217,8 @@
                         "domainStrategy": "ForceIP",
                         "happyEyeballs": {
                             "tryDelayMs": 300,
-                            "prioritizeIPv6": true,
-                            "interleave": 2,
+                            "prioritizeIPv6": false,
+                            "interleave": 4,
                             "maxConcurrentTry": 20
                         }
                     }
@@ -224,10 +227,10 @@
             {
                 "tag": "udp-noises",
                 "protocol": "direct",
-                "settings": {
-                    "targetStrategy": "ForceIPv6v4"
-                },
                 "streamSettings": {
+                    "sockopt": {
+                        "domainStrategy": "ForceIPv4v6"
+                    },
                     "finalmask": {
                         "udp": [
                             {
@@ -460,7 +463,7 @@
                     ]
                 },
                 {
-                    "outboundTag": "tcp-fragment",
+                    "outboundTag": "tcp-direct",
                     "network": "tcp",
                     "ip": [
                         "0.0.0.0/0",
@@ -481,7 +484,7 @@
             "donate2": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o",
             "donate3": "TON (TON): UQAc-mZB3y7uxWHKiMmq0ORZEYgycWDWZ4V1k73HsXvTJx-i"
         },
-        "remarks": "Serverless-v48-high_delay",
+        "remarks": "Serverless-v50-fragB",
         "version": {
             "min": "26.6.27"
         },
@@ -496,7 +499,7 @@
                     "uplinkOnly": 0,
                     "downlinkOnly": 0
                 },
-                "1": {
+                "12": {
                     "uplinkOnly": 0,
                     "downlinkOnly": 0,
                     "connIdle": 12
@@ -596,8 +599,8 @@
                         "domainStrategy": "ForceIP",
                         "happyEyeballs": {
                             "tryDelayMs": 300,
-                            "prioritizeIPv6": true,
-                            "interleave": 2,
+                            "prioritizeIPv6": false,
+                            "interleave": 4,
                             "maxConcurrentTry": 20
                         }
                     }
@@ -606,15 +609,17 @@
             {
                 "tag": "udp-direct",
                 "protocol": "direct",
-                "settings": {
-                    "targetStrategy": "ForceIPv6v4"
+                "streamSettings": {
+                    "sockopt": {
+                        "domainStrategy": "ForceIPv4v6"
+                    }
                 }
             },
             {
                 "tag": "dns-out",
                 "protocol": "dns",
                 "settings": {
-                    "userLevel": 1
+                    "userLevel": 12
                 }
             },
             {
@@ -631,39 +636,9 @@
                                         "1"
                                     ],
                                     "delays": [
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "400",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "400",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "400",
                                         "1"
                                     ],
-                                    "maxSplit": "419"
+                                    "maxSplit": "201"
                                 }
                             }
                         ]
@@ -672,8 +647,8 @@
                         "domainStrategy": "ForceIP",
                         "happyEyeballs": {
                             "tryDelayMs": 300,
-                            "prioritizeIPv6": true,
-                            "interleave": 2,
+                            "prioritizeIPv6": false,
+                            "interleave": 4,
                             "maxConcurrentTry": 20
                         }
                     }
@@ -690,7 +665,8 @@
                                 "settings": {
                                     "packets": "tlshello",
                                     "lengths": [
-                                        "5",
+                                        "0",
+                                        "104",
                                         "1"
                                     ],
                                     "delays": [
@@ -704,43 +680,13 @@
                                 "settings": {
                                     "packets": "1-1",
                                     "lengths": [
-                                        "43",
+                                        "114",
                                         "1"
                                     ],
                                     "delays": [
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "400",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "400",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "1",
-                                        "400",
                                         "1"
                                     ],
-                                    "maxSplit": "522"
+                                    "maxSplit": "11"
                                 }
                             }
                         ]
@@ -749,8 +695,8 @@
                         "domainStrategy": "ForceIP",
                         "happyEyeballs": {
                             "tryDelayMs": 300,
-                            "prioritizeIPv6": true,
-                            "interleave": 2,
+                            "prioritizeIPv6": false,
+                            "interleave": 4,
                             "maxConcurrentTry": 20
                         }
                     }
@@ -759,10 +705,10 @@
             {
                 "tag": "udp-noises",
                 "protocol": "direct",
-                "settings": {
-                    "targetStrategy": "ForceIPv6v4"
-                },
                 "streamSettings": {
+                    "sockopt": {
+                        "domainStrategy": "ForceIPv4v6"
+                    },
                     "finalmask": {
                         "udp": [
                             {
@@ -995,7 +941,7 @@
                     ]
                 },
                 {
-                    "outboundTag": "tcp-fragment",
+                    "outboundTag": "tcp-direct",
                     "network": "tcp",
                     "ip": [
                         "0.0.0.0/0",
