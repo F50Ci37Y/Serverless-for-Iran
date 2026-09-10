@@ -36,7 +36,7 @@ jobs:
           python - <<'EOF'
           import json, json5
 
-          files = ["Serverless-low_delay.jsonc", "Serverless-high_delay.jsonc"]
+          files = ["Serverless-fragA.jsonc", "Serverless-fragB.jsonc"]
           all_configs = []
 
           for f in files:
