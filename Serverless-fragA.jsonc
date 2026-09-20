@@ -7,7 +7,7 @@
   },
 
 
-  "remarks": "Serverless-v50-fragA",
+  "remarks": "Serverless-v51-fragA",
 
   "version": {
     "min": "26.6.27"
@@ -33,6 +33,7 @@
 
   "dns":{
     "hosts": {
+      "geosite:category-ads-all": "#3",
       "cloudflare-dns.com": "challenges.cloudflare.com"
     },
     "servers": [
@@ -47,8 +48,10 @@
         "finalQuery": true
       },
       {
+        "tag": "domestic-dns",
         "address": "localhost",
         "domains": ["domain:ir", "geosite:private", "geosite:category-ir", "geosite:xai", "geosite:openai", "geosite:google-deepmind", "geosite:anthropic", "geosite:github", "geosite:microsoft", "geosite:golang", "geosite:python", "geosite:rust", "full:challenges.cloudflare.com"],
+        "timeoutMs": 12000,
         "finalQuery": true
       }
     ],
@@ -176,6 +179,20 @@
   "routing": {
     "domainStrategy": "IPOnDemand",
     "rules": [
+      {
+        "outboundTag": "block",
+        "domain": ["geosite:category-ads-all"]
+      },
+      {
+        "outboundTag": "tcp-direct",
+        "inboundTag": ["domestic-dns"],
+        "network": "tcp"
+      },
+      {
+        "outboundTag": "udp-direct",
+        "inboundTag": ["domestic-dns"],
+        "network": "udp"
+      },
       {
         "outboundTag": "tcp-fragment-tls",
         "inboundTag": ["no-filter-dns"]

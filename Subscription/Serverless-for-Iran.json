@@ -6,7 +6,7 @@
             "donate2": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o",
             "donate3": "TON (TON): UQAc-mZB3y7uxWHKiMmq0ORZEYgycWDWZ4V1k73HsXvTJx-i"
         },
-        "remarks": "Serverless-v50-fragA",
+        "remarks": "Serverless-v51-fragA",
         "version": {
             "min": "26.6.27"
         },
@@ -30,6 +30,7 @@
         },
         "dns": {
             "hosts": {
+                "geosite:category-ads-all": "#3",
                 "cloudflare-dns.com": "challenges.cloudflare.com"
             },
             "servers": [
@@ -58,6 +59,7 @@
                     "finalQuery": true
                 },
                 {
+                    "tag": "domestic-dns",
                     "address": "localhost",
                     "domains": [
                         "domain:ir",
@@ -74,6 +76,7 @@
                         "geosite:rust",
                         "full:challenges.cloudflare.com"
                     ],
+                    "timeoutMs": 12000,
                     "finalQuery": true
                 }
             ],
@@ -346,6 +349,26 @@
             "domainStrategy": "IPOnDemand",
             "rules": [
                 {
+                    "outboundTag": "block",
+                    "domain": [
+                        "geosite:category-ads-all"
+                    ]
+                },
+                {
+                    "outboundTag": "tcp-direct",
+                    "inboundTag": [
+                        "domestic-dns"
+                    ],
+                    "network": "tcp"
+                },
+                {
+                    "outboundTag": "udp-direct",
+                    "inboundTag": [
+                        "domestic-dns"
+                    ],
+                    "network": "udp"
+                },
+                {
                     "outboundTag": "tcp-fragment-tls",
                     "inboundTag": [
                         "no-filter-dns"
@@ -484,7 +507,7 @@
             "donate2": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o",
             "donate3": "TON (TON): UQAc-mZB3y7uxWHKiMmq0ORZEYgycWDWZ4V1k73HsXvTJx-i"
         },
-        "remarks": "Serverless-v50-fragB",
+        "remarks": "Serverless-v51-fragB",
         "version": {
             "min": "26.6.27"
         },
@@ -508,6 +531,7 @@
         },
         "dns": {
             "hosts": {
+                "geosite:category-ads-all": "#3",
                 "cloudflare-dns.com": "challenges.cloudflare.com"
             },
             "servers": [
@@ -536,6 +560,7 @@
                     "finalQuery": true
                 },
                 {
+                    "tag": "domestic-dns",
                     "address": "localhost",
                     "domains": [
                         "domain:ir",
@@ -552,6 +577,7 @@
                         "geosite:rust",
                         "full:challenges.cloudflare.com"
                     ],
+                    "timeoutMs": 12000,
                     "finalQuery": true
                 }
             ],
@@ -823,6 +849,26 @@
         "routing": {
             "domainStrategy": "IPOnDemand",
             "rules": [
+                {
+                    "outboundTag": "block",
+                    "domain": [
+                        "geosite:category-ads-all"
+                    ]
+                },
+                {
+                    "outboundTag": "tcp-direct",
+                    "inboundTag": [
+                        "domestic-dns"
+                    ],
+                    "network": "tcp"
+                },
+                {
+                    "outboundTag": "udp-direct",
+                    "inboundTag": [
+                        "domestic-dns"
+                    ],
+                    "network": "udp"
+                },
                 {
                     "outboundTag": "tcp-fragment-tls",
                     "inboundTag": [
