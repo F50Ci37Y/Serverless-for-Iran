@@ -7,7 +7,7 @@
   },
 
 
-  "remarks": "Serverless-v51-fragB",
+  "remarks": "Serverless-v52-fragB",
 
   "version": {
     "min": "26.6.27"
@@ -94,7 +94,7 @@
       "streamSettings": {
         "sockopt": {
           "domainStrategy": "ForceIP",
-          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": false, "interleave": 4, "maxConcurrentTry": 20}
+          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": true, "interleave": 4, "maxConcurrentTry": 20}
         }
       }
     },
@@ -103,7 +103,7 @@
       "protocol": "direct",
       "streamSettings": {
         "sockopt": {
-          "domainStrategy": "ForceIPv4v6"
+          "domainStrategy": "ForceIPv6v4"
 		}
 	  }	
 	},
@@ -125,7 +125,7 @@
         },
         "sockopt": {
           "domainStrategy": "ForceIP",
-          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": false, "interleave": 4, "maxConcurrentTry": 20}
+          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": true, "interleave": 4, "maxConcurrentTry": 20}
         }
       }
     },
@@ -141,7 +141,7 @@
         },
         "sockopt": {
           "domainStrategy": "ForceIP",
-          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": false, "interleave": 4, "maxConcurrentTry": 20}
+          "happyEyeballs": {"tryDelayMs": 300, "prioritizeIPv6": true, "interleave": 4, "maxConcurrentTry": 20}
         }
       }
     },
@@ -150,7 +150,7 @@
       "protocol": "direct",
       "streamSettings": {
 		"sockopt": {
-          "domainStrategy": "ForceIPv4v6"
+          "domainStrategy": "ForceIPv6v4"
 		},
         "finalmask": {
           "udp": [
