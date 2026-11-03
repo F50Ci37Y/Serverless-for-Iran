@@ -7,10 +7,10 @@
   },
 
 
-  "remarks": "Serverless-v52-fragA",
+  "remarks": "Serverless-v55-fragA",
 
   "version": {
-    "min": "26.6.27"
+    "min": "26.11.1"
   },
 
   "log": {
@@ -43,7 +43,7 @@
       },
       {
         "tag": "no-filter-dns",
-        "address": "https://cloudflare-dns.com/dns-query",
+        "address": "https+one://cloudflare-dns.com/dns-query",
         "timeoutMs": 12000,
         "finalQuery": true
       },
