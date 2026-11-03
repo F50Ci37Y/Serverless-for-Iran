@@ -6,7 +6,7 @@
             "donate2": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o",
             "donate3": "TON (TON): UQAc-mZB3y7uxWHKiMmq0ORZEYgycWDWZ4V1k73HsXvTJx-i"
         },
-        "remarks": "Serverless-v55-fragA",
+        "remarks": "Serverless-v57-fragA",
         "version": {
             "min": "26.11.1"
         },
@@ -186,12 +186,20 @@
                     "finalmask": {
                         "tcp": [
                             {
+                                "type": "merge",
+                                "settings": {
+                                    "times": 100,
+                                    "delayMs": 30,
+                                    "maxBytes": 16384
+                                }
+                            },
+                            {
                                 "type": "fragment",
                                 "settings": {
                                     "packets": "tlshello",
                                     "lengths": [
                                         "6",
-                                        "98",
+                                        "99",
                                         "1"
                                     ],
                                     "delays": [
@@ -205,7 +213,7 @@
                                 "settings": {
                                     "packets": "1-1",
                                     "lengths": [
-                                        "114",
+                                        "115",
                                         "1"
                                     ],
                                     "delays": [
@@ -507,7 +515,7 @@
             "donate2": "USDT (TRC20): TU5gKvKqcXPn8itp1DouBCwcqGHMemBm8o",
             "donate3": "TON (TON): UQAc-mZB3y7uxWHKiMmq0ORZEYgycWDWZ4V1k73HsXvTJx-i"
         },
-        "remarks": "Serverless-v55-fragB",
+        "remarks": "Serverless-v57-fragB",
         "version": {
             "min": "26.11.1"
         },
@@ -687,12 +695,20 @@
                     "finalmask": {
                         "tcp": [
                             {
+                                "type": "merge",
+                                "settings": {
+                                    "times": 100,
+                                    "delayMs": 30,
+                                    "maxBytes": 16384
+                                }
+                            },
+                            {
                                 "type": "fragment",
                                 "settings": {
                                     "packets": "tlshello",
                                     "lengths": [
                                         "0",
-                                        "104",
+                                        "105",
                                         "1"
                                     ],
                                     "delays": [
@@ -706,7 +722,7 @@
                                 "settings": {
                                     "packets": "1-1",
                                     "lengths": [
-                                        "114",
+                                        "115",
                                         "1"
                                     ],
                                     "delays": [
